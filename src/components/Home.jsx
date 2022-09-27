@@ -8,14 +8,17 @@ import { getArticles } from "../api/requests";
 const Home = () => {
   const [articles, setArticles] = useState([]);
   const [selectedTopic, setSelectedTopic] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   const query = selectedTopic ? `?topic=${selectedTopic}` : "";
 
   useEffect(() => {
+    setIsLoading(true);
     getArticles(selectedTopic)
       .then(({ data }) => {
         setArticles(data.articles);
+        setIsLoading(false);
       })
       .catch((err) => console.log(err));
 
@@ -27,7 +30,12 @@ const Home = () => {
       <h2>Welcome</h2>
 
       <Filter setSelectedTopic={setSelectedTopic} />
-      <ArticleList articles={articles} />
+
+      {isLoading ? (
+        <p>Loading {selectedTopic} articles.....</p>
+      ) : (
+        <ArticleList articles={articles} />
+      )}
     </div>
   );
 };
