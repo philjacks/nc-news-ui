@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Filter from "./Filter";
 import ArticleList from "./ArticleList";
 
@@ -7,22 +8,18 @@ import { getArticles } from "../api/requests";
 const Home = () => {
   const [articles, setArticles] = useState([]);
   const [selectedTopic, setSelectedTopic] = useState("");
-  const [filteredArticles, setFilteredArticles] = useState([]);
+  const navigate = useNavigate();
+
+  const query = selectedTopic ? `?topic=${selectedTopic}` : "";
 
   useEffect(() => {
-    getArticles()
+    getArticles(selectedTopic)
       .then(({ data }) => {
         setArticles(data.articles);
       })
       .catch((err) => console.log(err));
-  }, []);
 
-  useEffect(() => {
-    const newFilteredArticles = articles.filter((article) => {
-      return article.topic.includes(selectedTopic);
-    });
-
-    setFilteredArticles(newFilteredArticles);
+    navigate(query);
   }, [selectedTopic]);
 
   return (
@@ -30,11 +27,7 @@ const Home = () => {
       <h2>Welcome</h2>
 
       <Filter setSelectedTopic={setSelectedTopic} />
-      {filteredArticles.length > 0 ? (
-        <ArticleList articles={filteredArticles} />
-      ) : (
-        <ArticleList articles={articles} />
-      )}
+      <ArticleList articles={articles} />
     </div>
   );
 };

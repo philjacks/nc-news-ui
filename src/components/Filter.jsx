@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import { getTopics } from "../api/requests";
 
 const Filter = ({ setSelectedTopic }) => {
@@ -8,10 +9,10 @@ const Filter = ({ setSelectedTopic }) => {
     getTopics()
       .then(({ data }) => setTopics(data.topics))
       .catch((err) => console.log(err));
-  });
+  }, []);
 
   return (
-    <div>
+    <form>
       <label htmlFor="filter-topics">Filter by </label>
       <select
         defaultValue=""
@@ -19,7 +20,7 @@ const Filter = ({ setSelectedTopic }) => {
         name="filter-topics"
         id="filter-topics"
       >
-        <option value="All">All</option>
+        <option value="">All</option>
         {topics.map((topic) => {
           return (
             <option key={topic.slug} value={topic.slug}>
@@ -28,7 +29,7 @@ const Filter = ({ setSelectedTopic }) => {
           );
         })}
       </select>
-    </div>
+    </form>
   );
 };
 
