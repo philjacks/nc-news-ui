@@ -23,7 +23,7 @@ const Home = () => {
       .catch((err) => console.log(err));
 
     navigate(query);
-  }, [selectedTopic]);
+  }, [selectedTopic, navigate, query, setArticles]);
 
   return (
     <div>
