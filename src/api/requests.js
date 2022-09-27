@@ -22,3 +22,6 @@ export const patchDownvoteByArticleId = (id) =>
   axios.patch(`${baseURL}/articles/${id}`, {
     votes: -1,
   });
+
+export const getCommentsByArticleId = (id) =>
+  axios.get(`${baseURL}/articles/${id}/comments`);
