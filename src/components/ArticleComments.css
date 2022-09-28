@@ -1,7 +1,7 @@
 .comments-list {
   text-align: left;
   width: 85vw;
-  margin: 4rem auto;
+  margin: 0 auto 4rem auto;
 }
 
 @media screen and (min-width: 700px) {
