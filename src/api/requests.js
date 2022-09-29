@@ -26,3 +26,6 @@ export const getCommentsByArticleId = (id) =>
 
 export const postCommentByArticleId = (id, body) =>
   axios.post(`${baseURL}/articles/${id}/comments`, body);
+
+export const deleteCommentById = (id) =>
+  axios.delete(`${baseURL}/comments/${id}`);

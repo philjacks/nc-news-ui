@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import "./AddComment.css";
 
-const AddComment = ({ article_id, comments, setComments }) => {
+const AddComment = ({ article_id, setComments }) => {
   const [comment, setComment] = useState("");
   const [msg, setMsg] = useState("");
   const [msgColor, setMsgColor] = useState("");
@@ -54,11 +54,8 @@ const AddComment = ({ article_id, comments, setComments }) => {
             setMsgColor("");
           }, 3000);
           setComments((currComments) => {
-            return currComments.map((comment, index) => {
-              if (comment.comment_id === newCommentUI.comment_id) {
-                currComments.splice(index, 1);
-              }
-              return comment;
+            return currComments.filter((comment) => {
+              return comment.comment_id !== newCommentUI.comment_id;
             });
           });
         }

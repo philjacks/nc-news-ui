@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getCommentsByArticleId } from "../api/requests";
-import CommentCard from "./CommentCard";
+import CommentsList from "./CommentsList";
 import AddComment from "./AddComment";
 
 import "./ArticleComments.css";
@@ -8,6 +8,8 @@ import "./ArticleComments.css";
 const ArticleComments = ({ article_id }) => {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [msg, setMsg] = useState("");
+  const [msgColor, setMsgColor] = useState("");
 
   useEffect(() => {
     setIsLoading(true);
@@ -29,11 +31,15 @@ const ArticleComments = ({ article_id }) => {
         comments={comments}
         setComments={setComments}
       />
-      <ul>
-        {comments.map((comment) => {
-          return <CommentCard key={comment.comment_id} comment={comment} />;
-        })}
-      </ul>
+
+      <CommentsList
+        msg={msg}
+        setMsg={setMsg}
+        msgColor={msgColor}
+        setMsgColor={setMsgColor}
+        setComments={setComments}
+        comments={comments}
+      />
     </section>
   );
 };
