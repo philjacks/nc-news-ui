@@ -2,11 +2,9 @@ import axios from "axios";
 
 const baseURL = "https://ncnews-philjacks-edition.herokuapp.com/api";
 
-export const getArticles = (selectedTopic) =>
+export const getArticles = (params) =>
   axios.get(`${baseURL}/articles`, {
-    params: {
-      topic: selectedTopic,
-    },
+    params: params.request,
   });
 
 export const getTopics = () => axios.get(`${baseURL}/topics`);

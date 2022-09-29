@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { postCommentByArticleId } from "../api/requests";
+import { v4 as uuidv4 } from "uuid";
 
 import "./AddComment.css";
 
@@ -20,7 +21,7 @@ const AddComment = ({ article_id, comments, setComments }) => {
       author: "weegembump",
       article_id: article_id,
       created_at: Date.now(),
-      comment_id: comments.length + 1,
+      comment_id: uuidv4(),
     };
 
     setComments((currComments) => {
