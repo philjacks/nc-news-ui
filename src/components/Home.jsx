@@ -7,16 +7,22 @@ import { getArticles } from "../api/requests";
 import { generateQueries } from "../helpers/generateQueries";
 
 import "./Home.css";
+import OrderBy from "./OrderBy";
 
 const Home = () => {
   const [articles, setArticles] = useState([]);
   const [selectedTopic, setSelectedTopic] = useState("");
   const [selectedSortBy, setSelectedSortBy] = useState("created_at");
+  const [selectedOrderBy, setSelectedOrderBy] = useState("ASC");
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const queries = generateQueries(selectedTopic, selectedSortBy);
+    const queries = generateQueries(
+      selectedTopic,
+      selectedSortBy,
+      selectedOrderBy
+    );
 
     setIsLoading(true);
     getArticles(queries)
@@ -27,7 +33,7 @@ const Home = () => {
       .catch((err) => console.log(err));
 
     navigate(queries.url);
-  }, [selectedTopic, navigate, selectedSortBy]);
+  }, [selectedTopic, navigate, selectedSortBy, selectedOrderBy]);
 
   return (
     <div>
@@ -36,6 +42,7 @@ const Home = () => {
       <div className="filters">
         <Filter setSelectedTopic={setSelectedTopic} />
         <SortBy setSelectedSortBy={setSelectedSortBy} />
+        <OrderBy setSelectedOrderBy={setSelectedOrderBy} />
       </div>
       {isLoading ? (
         <p>Loading {selectedTopic} articles.....</p>

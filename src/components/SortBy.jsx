@@ -14,8 +14,6 @@ const SortBy = ({ setSelectedSortBy }) => {
         <option value="title">Title</option>
         <option value="author">Author</option>
         <option value="votes">Votes</option>
-        <option value="ASC">Ascending</option>
-        <option value="DESC">Descending</option>
       </select>
     </form>
   );

@@ -1,4 +1,8 @@
-export const generateQueries = (selectedTopic, selectedSortBy) => {
+export const generateQueries = (
+  selectedTopic,
+  selectedSortBy,
+  selectedOrderBy
+) => {
   const validSortBy = ["created_at", "title", "author", "votes"];
   const validOrder = ["ASC", "DESC"];
   let urlQuery = "";
@@ -14,9 +18,9 @@ export const generateQueries = (selectedTopic, selectedSortBy) => {
     requestParams = { ...requestParams, sort_by: selectedSortBy };
   }
 
-  if (validOrder.includes(selectedSortBy)) {
-    urlQuery += `?order=${selectedSortBy}`;
-    requestParams = { ...requestParams, order: selectedSortBy };
+  if (validOrder.includes(selectedOrderBy)) {
+    urlQuery += `?order=${selectedOrderBy}`;
+    requestParams = { ...requestParams, order: selectedOrderBy };
   }
 
   return {
