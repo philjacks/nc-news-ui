@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { convertDate } from "../helpers/convertDate";
 
 const ArticleCard = ({ article }) => {
   return (
@@ -9,7 +10,8 @@ const ArticleCard = ({ article }) => {
           <h3>{article.title}</h3>
           <p>{article.topic}</p>
           <p>{article.author}</p>
-          <p>{article.votes}</p>
+          <p>Votes: {article.votes}</p>
+          <p>{convertDate(article.created_at)}</p>
         </li>
       </Link>
     </>

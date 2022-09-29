@@ -1,36 +1,42 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Filter from "./Filter";
+import SortBy from "./SortBy";
 import ArticleList from "./ArticleList";
-
 import { getArticles } from "../api/requests";
+import { generateQueries } from "../helpers/generateQueries";
+
+import "./Home.css";
 
 const Home = () => {
   const [articles, setArticles] = useState([]);
   const [selectedTopic, setSelectedTopic] = useState("");
+  const [selectedSortBy, setSelectedSortBy] = useState("created_at");
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
-  const query = selectedTopic ? `?topic=${selectedTopic}` : "";
-
   useEffect(() => {
+    const queries = generateQueries(selectedTopic, selectedSortBy);
+
     setIsLoading(true);
-    getArticles(selectedTopic)
+    getArticles(queries)
       .then(({ data }) => {
         setArticles(data.articles);
         setIsLoading(false);
       })
       .catch((err) => console.log(err));
 
-    navigate(query);
-  }, [selectedTopic, navigate, query, setArticles]);
+    navigate(queries.url);
+  }, [selectedTopic, navigate, selectedSortBy]);
 
   return (
     <div>
       <h2>Welcome</h2>
 
-      <Filter setSelectedTopic={setSelectedTopic} />
-
+      <div className="filters">
+        <Filter setSelectedTopic={setSelectedTopic} />
+        <SortBy setSelectedSortBy={setSelectedSortBy} />
+      </div>
       {isLoading ? (
         <p>Loading {selectedTopic} articles.....</p>
       ) : (

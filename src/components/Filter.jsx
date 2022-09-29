@@ -12,7 +12,7 @@ const Filter = ({ setSelectedTopic }) => {
   }, []);
 
   return (
-    <form>
+    <form style={{ margin: "1rem 1rem 0 1rem" }}>
       <label htmlFor="filter-topics">Filter by </label>
       <select
         defaultValue=""
