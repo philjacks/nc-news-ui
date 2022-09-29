@@ -25,3 +25,6 @@ export const patchDownvoteByArticleId = (id) =>
 
 export const getCommentsByArticleId = (id) =>
   axios.get(`${baseURL}/articles/${id}/comments`);
+
+export const postCommentByArticleId = (id, body) =>
+  axios.post(`${baseURL}/articles/${id}/comments`, body);

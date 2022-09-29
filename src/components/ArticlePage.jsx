@@ -24,15 +24,15 @@ const ArticlePage = () => {
   if (isLoading) return <p>Loading article...</p>;
 
   return (
-    <>
-      <section className="article-section">
+    <section>
+      <div className="article-section">
         <h2>{article.title}</h2>
         <p>{`Author: ${article.author}`}</p>
         <p>{article.body}</p>
         <ArticleVote article={article} />
-      </section>
+      </div>
       <ArticleComments article_id={article_id} />
-    </>
+    </section>
   );
 };
 
