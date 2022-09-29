@@ -8,7 +8,7 @@ const OrderBy = ({ setSelectedOrderBy }) => {
         onChange={(e) => setSelectedOrderBy(e.target.value)}
         name="order-by"
         id="order-by"
-        defaultValue="ASC"
+        defaultValue="DESC"
       >
         <option value="ASC">Ascending</option>
         <option value="DESC">Descending</option>

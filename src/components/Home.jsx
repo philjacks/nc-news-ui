@@ -13,7 +13,7 @@ const Home = () => {
   const [articles, setArticles] = useState([]);
   const [selectedTopic, setSelectedTopic] = useState("");
   const [selectedSortBy, setSelectedSortBy] = useState("created_at");
-  const [selectedOrderBy, setSelectedOrderBy] = useState("ASC");
+  const [selectedOrderBy, setSelectedOrderBy] = useState("DESC");
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
