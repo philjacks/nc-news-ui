@@ -25,7 +25,7 @@ const AddComment = ({ article_id, setComments }) => {
     };
 
     setComments((currComments) => {
-      return [...currComments, newCommentUI];
+      return [newCommentUI, ...currComments];
     });
 
     setMsg("Adding comment...");

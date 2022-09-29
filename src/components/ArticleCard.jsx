@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { convertDate } from "../helpers/convertDate";
+import { convertUnixToDate } from "../helpers/dateConverters";
 
 const ArticleCard = ({ article }) => {
   return (
@@ -11,7 +11,7 @@ const ArticleCard = ({ article }) => {
           <p>{article.topic}</p>
           <p>{article.author}</p>
           <p>Votes: {article.votes}</p>
-          <p>{convertDate(article.created_at)}</p>
+          <p>{convertUnixToDate(article.created_at)}</p>
         </li>
       </Link>
     </>

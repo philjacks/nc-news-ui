@@ -1,4 +1,5 @@
 import React from "react";
+import { convertDateToUnix } from "../helpers/dateConverters";
 import CommentCard from "./CommentCard";
 
 const CommentsList = ({
@@ -11,19 +12,25 @@ const CommentsList = ({
 }) => {
   return (
     <ul>
-      {comments.map((comment) => {
-        return (
-          <CommentCard
-            msg={msg}
-            msgColor={msgColor}
-            setMsgColor={setMsgColor}
-            setMsg={setMsg}
-            setComments={setComments}
-            key={comment.comment_id}
-            comment={comment}
-          />
-        );
-      })}
+      {comments
+        .sort((a, b) => {
+          return (
+            convertDateToUnix(b.created_at) - convertDateToUnix(a.created_at)
+          );
+        })
+        .map((comment) => {
+          return (
+            <CommentCard
+              msg={msg}
+              msgColor={msgColor}
+              setMsgColor={setMsgColor}
+              setMsg={setMsg}
+              setComments={setComments}
+              key={comment.comment_id}
+              comment={comment}
+            />
+          );
+        })}
     </ul>
   );
 };
