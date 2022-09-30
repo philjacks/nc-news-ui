@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getCommentsByArticleId } from "../api/requests";
 import CommentsList from "./CommentsList";
 import AddComment from "./AddComment";
+import ErrorMessage from "./ErrorMessage";
 
 import "./ArticleComments.css";
 
@@ -10,6 +11,7 @@ const ArticleComments = ({ article_id }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [msg, setMsg] = useState("");
   const [msgColor, setMsgColor] = useState("");
+  const [error, setError] = useState({});
 
   useEffect(() => {
     setIsLoading(true);
@@ -18,10 +20,29 @@ const ArticleComments = ({ article_id }) => {
         setComments(data.comments);
         setIsLoading(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        if (err) {
+          setIsLoading(false);
+          setError((currError) => {
+            return {
+              ...currError,
+              status: err.response.status,
+              message: err.response.statusText,
+            };
+          });
+        }
+      });
   }, [article_id]);
 
   if (isLoading) return <p>Loading comments...</p>;
+  if (Object.keys(error).length)
+    return (
+      <ErrorMessage
+        element="Comments"
+        status={error.status}
+        message="Problem fetching comments"
+      />
+    );
 
   return (
     <section className="comments-list">

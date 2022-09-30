@@ -5,11 +5,13 @@ import ArticleVote from "./ArticleVote";
 import ArticleComments from "./ArticleComments";
 
 import "./ArticlePage.css";
+import ErrorMessage from "./ErrorMessage";
 
 const ArticlePage = () => {
   const [article, setArticle] = useState({});
   const { article_id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState({});
 
   useEffect(() => {
     setIsLoading(true);
@@ -18,10 +20,29 @@ const ArticlePage = () => {
         setArticle(data.article);
         setIsLoading(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        if (err) {
+          setIsLoading(false);
+          setError((currError) => {
+            return {
+              ...currError,
+              status: err.response.status,
+              message: err.response.statusText,
+            };
+          });
+        }
+      });
   }, [article_id]);
 
   if (isLoading) return <p>Loading article...</p>;
+  if (Object.keys(error).length)
+    return (
+      <ErrorMessage
+        element="Article"
+        status={error.status}
+        message={error.message}
+      />
+    );
 
   return (
     <section>
