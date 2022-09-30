@@ -59,8 +59,6 @@ const Home = () => {
 
   return (
     <div>
-      <h2>Welcome</h2>
-
       <div className="filters">
         <Filter setSelectedTopic={setSelectedTopic} />
         <SortBy setSelectedSortBy={setSelectedSortBy} />

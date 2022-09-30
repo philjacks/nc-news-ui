@@ -53,18 +53,24 @@ const CommentCard = ({
   return (
     <>
       {isPending ? (
-        <p className={msgColor}>{msg}</p>
+        <div className="message-card">
+          <p className={msgColor}>{msg}</p>
+        </div>
       ) : (
         <li className="comment-card" key={comment.comment_id}>
-          <h4>{comment.author}</h4>
-          <p>{comment.body}</p>
-          <p>Votes: {comment.votes}</p>
-          <button
-            disabled={deleteDisabled}
-            onClick={() => handleDelete(comment.comment_id)}
-          >
-            Delete
-          </button>
+          <h4 className="card-title">{comment.author}</h4>
+          <p className="comment-body">{comment.body}</p>
+          <div className="card-bottom">
+            <p>Votes: {comment.votes}</p>
+
+            <button
+              disabled={deleteDisabled}
+              className="delete-btn"
+              onClick={() => handleDelete(comment.comment_id)}
+            >
+              X
+            </button>
+          </div>
         </li>
       )}
     </>

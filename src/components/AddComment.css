@@ -9,10 +9,37 @@ textarea {
   width: 100%;
   resize: vertical;
   min-height: 10vh;
+  border-style: none;
+  border-color: Transparent;
+  border-bottom: 1px solid gray;
+  padding: 1rem;
+}
+
+textarea:focus {
+  min-height: 20vh;
+  outline: none;
+  transition: 0.2s ease-in-out;
 }
 
 .btns {
   align-self: end;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #4fc4cf;
+  color: white;
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  transition: 0.2s ease-in;
+}
+
+.btn:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: 0.2s ease-in;
+  color: white;
+  cursor: pointer;
 }
 
 .submit-btn {

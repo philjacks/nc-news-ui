@@ -1,5 +1,36 @@
 .comment-card {
   width: 100%;
+  padding: 2rem;
+  margin: 2rem 2rem 2rem 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.message-card {
+  padding: 4rem 4rem 4rem 2rem;
+}
+
+.comment-body {
+  padding: 0.5rem 0.5rem 0.5rem 0;
+  margin-bottom: 1.5rem;
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete-btn {
+  padding: 0.3rem 0.5rem;
+  border-radius: 50%;
+  background-color: #fbdd74;
+  border: none;
+}
+
+.delete-btn:hover {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .green {
@@ -13,5 +44,9 @@
 @media screen and (min-width: 900px) {
   .comment-card {
     width: 70%;
+  }
+
+  .comment-body {
+    padding: 1rem 1rem 1rem 0;
   }
 }

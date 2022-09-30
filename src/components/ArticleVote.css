@@ -2,3 +2,29 @@
   display: flex;
   align-items: center;
 }
+
+.arrows {
+  display: flex;
+  justify-content: center;
+}
+
+.arrow {
+  width: 30px;
+}
+
+.arrow:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 50%;
+}
+
+.down {
+  margin-top: -0.3rem;
+}
+
+.text {
+  margin-left: 20px;
+}
+
+.arrow:hover {
+  cursor: pointer;
+}

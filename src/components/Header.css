@@ -1,0 +1,14 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  background-color: #4fc4cf;
+  color: #fffffe;
+  letter-spacing: 1.6px;
+  text-align: center;
+}
+
+.title {
+  color: white;
+}

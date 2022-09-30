@@ -1,9 +1,10 @@
 import React from "react";
+import "./OrderBy.css";
 
 const OrderBy = ({ setSelectedOrderBy }) => {
   return (
-    <form style={{ margin: "1rem 1rem 0 1rem" }}>
-      <label htmlFor="order-by">Order by </label>
+    <form className="order-by">
+      <label htmlFor="order-by">Order </label>
       <select
         onChange={(e) => setSelectedOrderBy(e.target.value)}
         name="order-by"
