@@ -1,8 +1,10 @@
 import React from "react";
 
+import "./SortBy.css";
+
 const SortBy = ({ setSelectedSortBy }) => {
   return (
-    <form style={{ margin: "1rem 1rem 0 1rem" }}>
+    <form className="sort-by">
       <label htmlFor="sort-by">Sort by </label>
       <select
         onChange={(e) => setSelectedSortBy(e.target.value)}

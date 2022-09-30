@@ -82,10 +82,10 @@ const AddComment = ({ article_id, setComments }) => {
         disabled={commentDisabled}
       ></textarea>
       <div className="btns">
-        <button type="reset" onClick={clearComment} className="cancel-btn">
+        <button type="reset" onClick={clearComment} className="cancel-btn btn">
           Cancel
         </button>
-        <button className="submit-btn">Comment</button>
+        <button className="submit-btn btn">Comment</button>
       </div>
       <p className={`${msgColor} msg`}>{msg}</p>
     </form>

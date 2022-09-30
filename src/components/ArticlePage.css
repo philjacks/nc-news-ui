@@ -1,11 +1,63 @@
 .article-section {
+  display: flex;
+  flex-direction: column;
   text-align: left;
   width: 85vw;
   margin: 4rem auto;
 }
 
+.back {
+  padding: 1rem;
+  width: 9rem;
+  border-radius: 10px;
+}
+
+.back-arrow {
+  width: 2rem;
+}
+
+.back-text {
+  color: #4fc4cf;
+}
+
+.back:hover {
+  cursor: pointer;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.article-title {
+  padding: 2rem 2rem 2rem 0;
+  font-size: 2rem;
+}
+
+.article-icon {
+  width: 50px;
+  align-self: end;
+  margin: 0.4rem;
+}
+
+.underline {
+  border: 3px solid #4fc4cf;
+  width: 25vw;
+  border-radius: 30px;
+  background-color: #4fc4cf;
+}
+
+.author {
+  align-self: end;
+}
+
+.article-body {
+  padding: 1rem 1rem 1rem 0;
+  margin-top: 2rem;
+}
+
 @media screen and (min-width: 700px) {
   .article-section {
     width: 60vw;
+  }
+
+  .article-body {
+    padding: 3rem 3rem 3rem 0;
   }
 }

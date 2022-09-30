@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { getTopics } from "../api/requests";
 
+import "./Filter.css";
+
 const Filter = ({ setSelectedTopic }) => {
   const [topics, setTopics] = useState([]);
   const [error, setError] = useState("");
@@ -17,8 +19,8 @@ const Filter = ({ setSelectedTopic }) => {
 
   return (
     <>
-      <form style={{ margin: "1rem 1rem 0 1rem" }}>
-        <label htmlFor="filter-topics">Filter by </label>
+      <form className="filter-form">
+        <label htmlFor="filter-topics">Topic </label>
         <select
           defaultValue=""
           onChange={(e) => setSelectedTopic(e.target.value)}

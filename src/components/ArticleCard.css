@@ -1,0 +1,58 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  height: 21rem;
+  margin: 1rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 10px;
+  transition: 0.4s ease-in;
+}
+
+.card:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  transform: scale(1.05);
+  transition: 0.4s ease-in;
+  color: white;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  border: 1px solid black;
+}
+
+.created {
+  align-self: end;
+}
+
+.card-title {
+  margin-bottom: 0.5rem;
+
+  color: #353535;
+}
+
+.icon {
+  width: 150px;
+  padding: 1rem;
+  align-self: center;
+}
+.mid {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  align-self: end;
+}
+
+.bottom {
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-self: end;
+}

@@ -1,11 +1,14 @@
 .filters {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  width: 100%;
+  padding: 1rem;
+  background-color: #353535;
 }
 
-.filter {
-  margin: 5rem;
+.select {
+  margin: 0 1rem;
+  color: white;
 }
 
 @media screen and (min-width: 700px) {

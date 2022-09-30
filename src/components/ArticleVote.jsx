@@ -3,6 +3,8 @@ import {
   patchDownvoteByArticleId,
   patchUpvoteByArticleId,
 } from "../api/requests";
+import upvote from "../img/upvote-arrow.png";
+import downvote from "../img/downvote-arrow.png";
 
 import "./ArticleVote.css";
 
@@ -42,11 +44,20 @@ const ArticleVote = ({ article }) => {
 
   return (
     <div className="vote-body">
-      <button onClick={() => handleUpvote(article.article_id)}>&#8593;</button>
-      <button onClick={() => handleDownvote(article.article_id)}>
-        &#8595;
-      </button>
-      <p>Votes: {votes}</p>
+      <img
+        className="arrow"
+        onClick={() => handleUpvote(article.article_id)}
+        src={upvote}
+        alt="Upvote arrow"
+      />
+      <img
+        className="arrow down"
+        onClick={() => handleDownvote(article.article_id)}
+        src={downvote}
+        alt="Downvote arrow"
+      />
+
+      <p className="text">Votes: {votes}</p>
       <p style={{ color: "red" }}>{err}</p>
     </div>
   );

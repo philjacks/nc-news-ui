@@ -1,0 +1,19 @@
+nav {
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.nav-link {
+  text-decoration: none;
+}
+
+.home-icon {
+  width: 2rem;
+}
+
+@media screen and (min-width: 700px) {
+  .home-icon {
+    width: 3rem;
+  }
+}
