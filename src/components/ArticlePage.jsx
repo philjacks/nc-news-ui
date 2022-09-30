@@ -75,6 +75,7 @@ const ArticlePage = () => {
         <p className="created">{convertUnixToDate(article.created_at)}</p>
 
         <p className="article-body">{article.body}</p>
+        <div className="small-underline"></div>
         <ArticleVote article={article} />
       </div>
       <ArticleComments article_id={article_id} />

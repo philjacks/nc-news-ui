@@ -43,13 +43,20 @@
   background-color: #4fc4cf;
 }
 
+.small-underline {
+  width: 10vw;
+  background-color: #4fc4cf;
+  border: 1px solid #4fc4cf;
+  border-radius: 30px;
+}
+
 .author {
   align-self: end;
 }
 
 .article-body {
   padding: 1rem 1rem 1rem 0;
-  margin-top: 2rem;
+  margin: 2rem 0;
 }
 
 @media screen and (min-width: 700px) {
